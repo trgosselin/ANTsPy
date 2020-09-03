@@ -205,7 +205,7 @@ def joint_label_fusion(target_image, target_image_mask, atlas_list, beta=4, rad=
     finalsegvec = segmat.argmax( axis = 0 )
     finalsegvec2 = finalsegvec.copy()
     # mapfinalsegvec to original labels
-    for i in range(finalsegvec.max()+1):
+    for i in range(finalsegvec.max()):
         finalsegvec2[finalsegvec==i] = inlabs[i]
     outimg = iio2.make_image( target_image_mask, finalsegvec2 )
 
